@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "jpdb OpenAI TTS",
+  "version": "1.0",
+  "description": "Replaces jpdb.io audio with OpenAI TTS (tts-1-hd, Alloy)",
+  "permissions": ["storage"],
+  "host_permissions": ["https://api.openai.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://jpdb.io/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "icons": {
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}
